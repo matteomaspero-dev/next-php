@@ -1,8 +1,9 @@
 <?php
+declare(strict_types=1);
 
 // Load config and core modules
-require_once 'config.php';
-require_once CORE_PATH . '/App.php';
+require "config.php";
+require CORE_PATH . "/App.php";
 
 try {
 	// Init and run the application
@@ -15,6 +16,6 @@ try {
 	http_response_code($code);
 
 	// Render a simple error message
-	echo '<h1>Error $code</h1>';
-	echo '<p>' . htmlspecialchars($e->getMessage()) . '</p>';
+	echo "<h1>Error $code</h1>";
+	echo "<p>" . htmlspecialchars($e->getMessage()) . "</p>";
 }

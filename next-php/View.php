@@ -1,5 +1,4 @@
 <?php
-
 declare(strict_types=1);
 
 class View {
@@ -13,21 +12,21 @@ class View {
 
 	public function resolve(string $route) {
 		// Locate the Page file
-		$this->pagePath = $route . '/page.php';
+		$this->pagePath = $route . "/page.php";
 		
 		if (!file_exists($this->pagePath)) {
-			throw new Exception('Page not found', 404);
+			throw new Exception("Page not found", 404);
 		}
 
 		// Locate the nearest Layout file
 		$currentPath = $route;
-		while (!file_exists($currentPath . '/layout.php')) {
+		while (!file_exists($currentPath . "/layout.php")) {
 			if ($currentPath === APP_PATH) {
-				throw new Exception('Layout file not found', 500);
+				throw new Exception("Layout file not found", 500);
 			}
 			$currentPath = dirname($currentPath);
 		}
-		$this->layoutPath = $currentPath . '/layout.php';
+		$this->layoutPath = $currentPath . "/layout.php";
 	}
 
 	public function render() {
