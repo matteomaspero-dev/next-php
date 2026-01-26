@@ -1,13 +1,19 @@
-# Prevent directory traversal attempts
 RewriteEngine On
 
-# Block URLs containing ../
+# Prevent directory traversal attempts
 RewriteCond %{THE_REQUEST} \.\./
 RewriteRule .* - [F,L]
 
-# Allow direct access to files and directories (like public/style.css)
+# Block access to files outside public folder
+RewriteCond %{REQUEST_URI} !^/public/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(?!public/).*$ - [F,L]
+
+# Allow direct access to files in public folder
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^public/ - [L]
 
 # Route everything else to index.php
 RewriteRule ^(.*)$ index.php [QSA,L]
