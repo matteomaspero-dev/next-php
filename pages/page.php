@@ -1,2 +1,2 @@
-<h3>Welcome to the Page</h3>
+<h3>Home page template</h3>
 <p>This is a sample page content.</p>
