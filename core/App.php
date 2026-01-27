@@ -1,12 +1,20 @@
 <?php
 declare(strict_types=1);
+namespace core;
 
-require PATHS["core"] . "/Page.php";
+class App
+{
+    private Router $router;
+    private View $view;
 
-class App {
+    public function __construct()
+    {
+        $this->router = new Router($_SERVER["REQUEST_URI"]);
+        $this->view = new View($this->router);
+    }
 
-	public function run(): void {
-		$page = new Page("login");
-		$page = new Page("register");
-	}
+    public function run(): void
+    {
+        $this->view->render();
+    }
 }

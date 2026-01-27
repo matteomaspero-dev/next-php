@@ -7,7 +7,7 @@ const APP = [
 ];
 
 const PATHS = [
-	"app" => __DIR__,
+	"root" => __DIR__,
 	"core" => __DIR__ . "/core",
 	"pages" => __DIR__ . "/pages",
 	"public" => __DIR__ . "/public",

@@ -6,8 +6,7 @@
 	<title><?= APP["name"] ?></title>
 </head>
 <body>
-
-	<h1>Welcome</h1>
+	<h1>Authentication</h1>	
 	<?= $page ?>
 
 </body>
